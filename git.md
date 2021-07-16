@@ -82,3 +82,37 @@ git clean -df
 
 [原文链接](https://blog.csdn.net/leedaning/article/details/51304690)
 
+## 移除 Git 中的(包括 Commit 历史)中的敏感文件
+
+### 速速移除
+
+```shell
+# filter-branch 是 git 自带的命令：
+
+git filter-branch --force --index-filter \
+'git rm --cached --ignore-unmatch PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA' \
+--prune-empty --tag-name-filter cat -- --all
+
+# 请将上面命令中的 PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA 替换为你要删除的文件名路径（相对路径、绝对路径均可）。
+
+# 如果你想删除文件夹的话，只需要添加一个 -r 参数即可，形如：
+
+git filter-branch --force --index-filter \
+'git rm -r --cached --ignore-unmatch PATH-TO-YOUR-DIR-WITH-SENSITIVE-DATA' \
+--prune-empty --tag-name-filter cat -- --all
+```
+
+### 避免再犯
+
+为了防止敏感文件再次被提交，可以将其加入到 .gitignore 文件中。
+
+### 速速提交
+
+```shell
+
+# 执行以下命令将其强制推送到仓库中：
+
+git push origin --force
+```
+
+[链接](https://jitwxs.cn/9a10ca4e)
