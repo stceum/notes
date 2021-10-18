@@ -1,8 +1,5 @@
 # windows 常用指令
 
-[toc]
-
-
 ## 获取当前的所有环境变量
 
 ```powershell
