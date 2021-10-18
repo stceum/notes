@@ -5,8 +5,9 @@ date: 2021-10-18 16:55:27
 
 - Vue
 
-[vue router](./vue/vue-router)
+  [vue router](./vue/vue-router)
 
 - Windows
 
-[Windows Commands](./windows/windows_commands)
+  [Windows Commands](./windows/windows_commands)
+  [garbled in windows terminal](./windows/garbled_in_wt)
